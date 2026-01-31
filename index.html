@@ -116,6 +116,12 @@
       background: #ea580c;
       box-shadow: 0 6px 20px rgba(249, 115, 22, 0.23);
     }
+    
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      border-radius: 8px;
+    }
 
     /* Top Bar */
     .top-bar {
@@ -197,6 +203,10 @@
     section {
       padding: 100px 0;
     }
+    
+    section.bg-light {
+      background-color: #f1f5f9;
+    }
 
     .section-header {
       text-align: center;
@@ -233,6 +243,8 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .feature-card:hover {
@@ -253,17 +265,55 @@
       font-size: 1.5rem;
       margin-bottom: 24px;
     }
+    
+    .csm-icon-box {
+      width: 50px;
+      height: 50px;
+      background: #f0fdf4;
+      color: #166534;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+    }
 
     .feature-card h3 {
       font-size: 1.25rem;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       color: var(--secondary);
+    }
+    
+    .feature-card .subtitle {
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+      text-transform: uppercase;
     }
 
     .feature-card p {
       color: var(--text-muted);
       font-size: 0.95rem;
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
+    
+    .demo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: #059669;
+      background: #d1fae5;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      align-self: flex-start;
     }
 
     /* Savely Showcase Section */
@@ -516,7 +566,6 @@
   <!-- Hero Section -->
   <header>
     <div class="container hero-content">
-      <!-- Badge Removed -->
       <h1>🛠️ DigitalYar Tools Hub</h1>
       <p>
         جعبه ابزار دیجیتال‌یار؛ مرجع ابزارهای تخصصی نرم‌افزاری برای کسب‌وکارهای ایرانی.
@@ -661,16 +710,160 @@
     </div>
   </section>
 
+  <!-- CSM Products Section -->
+  <section class="bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>سامانه‌های تخصصی (CSM)</h2>
+        <p>نرم‌افزارهای جامع و پیشرفته برای مدیریت کسب‌وکارهای تخصصی. تمامی این سیستم‌ها دارای نسخه دمو جهت بررسی امکانات می‌باشند.</p>
+      </div>
+
+      <div class="grid">
+        
+        <!-- DakhlYar -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-calculator"></i></div>
+          <h3>دخل یار (DakhlYar)</h3>
+          <span class="subtitle">سامانه حسابداری و انبارداری</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>مدیریت کامل فاکتورها، انبار، چک‌ها و حساب‌های بانکی با رابط کاربری ساده.</p>
+          <a href="https://digifilestore.ir/downloads/project46/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+
+        <!-- SamNet -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <h3>سام نت (SamNet)</h3>
+          <span class="subtitle">سیستم تعمیر و نگهداری (PM)</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>مدیریت تجهیزات، زمان‌بندی سرویس‌ها و کاهش خرابی‌های ناگهانی ماشین‌آلات.</p>
+          <a href="https://digifilestore.ir/downloads/project47/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+
+        <!-- PadashYar -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          <h3>پاداش یار (PadashYar)</h3>
+          <span class="subtitle">سیستم مدیریت کارانه و پاداش</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>محاسبه دقیق کارانه پرسنل بر اساس عملکرد، مدل P4Q و شاخص‌های کلیدی.</p>
+          <a href="https://digifilestore.ir/downloads/padashyar-p4q-based-employee-incentive-bonus-system/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+
+        <!-- Sanjino -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h3>سنجینو (Sanjino)</h3>
+          <span class="subtitle">مدیریت مدارس و آموزشگاه‌ها</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>مدیریت دانش‌آموزان، آزمون آنلاین، نمرات و ارتباط با اولیا به صورت هوشمند.</p>
+          <a href="https://digifilestore.ir/downloads/sanjino-smart-online-exam-scoring-result-analysis-system-for-schools/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+
+        <!-- Riparo -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-car-side"></i></div>
+          <h3>ریپارو (Riparo)</h3>
+          <span class="subtitle">سیستم مدیریت تعمیرگاه</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>پذیرش خودرو، صدور کارت تعمیر، مدیریت قطعات و سوابق تعمیراتی مشتریان.</p>
+          <a href="https://digifilestore.ir/downloads/riparo-service-center-software/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+
+        <!-- Custofy -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-users-gear"></i></div>
+          <h3>کاستوفای (Custofy)</h3>
+          <span class="subtitle">مدیریت ارتباط با مشتری (CRM)</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>پیگیری سرنخ‌های فروش، تیکتینگ، وفادارسازی مشتریان و گزارش‌گیری فروش.</p>
+          <a href="https://digifilestore.ir/downloads/custofy-customer-relationship-management-software/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+
+        <!-- SalonYar -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-scissors"></i></div>
+          <h3>سالن یار (SalonYar)</h3>
+          <span class="subtitle">مدیریت سالن‌های زیبایی</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>نوبت‌دهی آنلاین، مدیریت پرسنل، محاسبه درصد آرایشگران و انبارداری مواد.</p>
+          <a href="https://digifilestore.ir/downloads/beauty-salon-management-system-salonyar/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+
+        <!-- Reserva -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-house-user"></i></div>
+          <h3>رزروا (Reserva)</h3>
+          <span class="subtitle">مدیریت اقامتگاه‌های مسافری</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>تقویم پر و خالی، رزرو آنلاین، مدیریت نظافت و صورت‌حساب مسافران.</p>
+          <a href="https://digifilestore.ir/downloads/rezerva-all-in-one-property-online-booking-management-system/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+
+        <!-- Immigo -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-plane-departure"></i></div>
+          <h3>ایمیگو (Immigo)</h3>
+          <span class="subtitle">مدیریت آژانس‌های مهاجرتی</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>پیگیری پرونده کلاینت‌ها، مدیریت قراردادها و اتوماسیون فرم‌های مهاجرتی.</p>
+          <a href="https://digifilestore.ir/downloads/immigo-comprehensive-immigration-agency-management-platform/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+
+        <!-- Therapia -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-brain"></i></div>
+          <h3>تراپیا (Therapia)</h3>
+          <span class="subtitle">مدیریت کلینیک روانشناسی</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>پرونده الکترونیک بیمار، نوبت‌دهی، تست‌های روانشناسی و مدیریت درمانگران.</p>
+          <a href="https://digifilestore.ir/downloads/therapia-comprehensive-management-system-for-psychology-and-psychiatry-clinics/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+        
+        <!-- Projino -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-list-check"></i></div>
+          <h3>پروجینو (Projino)</h3>
+          <span class="subtitle">مدیریت پروژه و جلسات</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>تعریف پروژه، تسک‌بندی، ثبت صورت‌جلسات و پیگیری مصوبات سازمانی.</p>
+          <a href="https://digifilestore.ir/downloads/projino-integrated-project-and-meeting-management-system/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+
+        <!-- Hirely -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-user-tie"></i></div>
+          <h3>هایرلی (Hirely)</h3>
+          <span class="subtitle">مدیریت منابع انسانی (HR)</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>فرآیند جذب و استخدام، پرونده پرسنلی، احکام کارگزینی و ارزیابی عملکرد.</p>
+          <a href="https://digifilestore.ir/downloads/hirely-hrms-payroll-ats-software/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+        
+        <!-- Skinora -->
+        <div class="feature-card">
+          <div class="csm-icon-box"><i class="fa-solid fa-spa"></i></div>
+          <h3>اسکینورا (Skinora)</h3>
+          <span class="subtitle">کلینیک پوست و مو</span>
+          <div class="demo-badge"><i class="fa-solid fa-circle-check"></i> دارای نسخه دمو</div>
+          <p>مدیریت مراجعین، خدمات زیبایی، گالری تصاویر قبل و بعد و انبار مصرفی.</p>
+          <a href="https://digifilestore.ir/downloads/skinora-clinic-management-system/" class="btn btn-outline btn-sm">مشاهده و دانلود</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Stats Section -->
   <section>
     <div class="container">
       <div class="stats-container">
         <div class="stat-item">
-          <h3>+40</h3>
+          <h3>+50</h3>
           <p>ابزار تخصصی فعال</p>
         </div>
         <div class="stat-item">
-          <h3>+10</h3>
+          <h3>+15</h3>
           <p>حوزه کسب‌وکار پوشش داده شده</p>
         </div>
         <div class="stat-item">
@@ -739,7 +932,7 @@
       </div>
 
       <div class="copyright">
-        <p>© DigitalYar 2024 – توسعه داده شده با ❤️ برای ایران</p>
+        <p>© DigitalYar 2026 – توسعه داده شده با ❤️ برای ایران</p>
       </div>
     </div>
   </footer>
