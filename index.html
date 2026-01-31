@@ -4,260 +4,745 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DigitalYar Tools Hub | جعبه ابزار دیجیتال‌یار</title>
-  <meta name="description" content="مرجع ابزارهای تخصصی نرم‌افزاری برای کسب‌وکارهای ایرانی – بیش از 40 ابزار کاربردی" />
+  <meta name="description" content="مرجع ابزارهای تخصصی نرم‌افزاری برای کسب‌وکارهای ایرانی – بیش از 40 ابزار کاربردی برای مدیریت، صنعت، فروش و خدمات" />
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
     :root {
-      --primary: #f97316; /* Orange */
-      --secondary: #7c2d12;
-      --dark: #1f2933;
-      --bg: #fff7ed;
-      --card: #ffffff;
-      --muted: #6b7280;
+      --primary: #2563eb;       /* Royal Blue */
+      --primary-dark: #1e40af;
+      --secondary: #0f172a;     /* Slate 900 */
+      --accent: #10b981;        /* Emerald (for Savely) */
+      --savely-orange: #f97316; /* Orange from Savely brand */
+      --bg: #f8fafc;            /* Slate 50 */
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --radius: 16px;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      outline: none;
+    }
 
     body {
       font-family: 'Vazirmatn', sans-serif;
-      background: var(--bg);
-      color: var(--dark);
-      line-height: 1.9;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.8;
+      overflow-x: hidden;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
 
-    header {
-      background: linear-gradient(135deg, #fb923c, #f97316);
+    ul {
+      list-style: none;
+    }
+
+    /* Utilities */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .btn-primary {
+      background: var(--primary);
       color: #fff;
-      padding: 90px 20px 110px;
+      border: 1px solid transparent;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--border);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: #eff6ff;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--primary);
+    }
+    
+    .btn-savely {
+      background: var(--savely-orange);
+      color: #fff;
+      box-shadow: 0 4px 14px 0 rgba(249, 115, 22, 0.39);
+    }
+    
+    .btn-savely:hover {
+      background: #ea580c;
+      box-shadow: 0 6px 20px rgba(249, 115, 22, 0.23);
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background: var(--secondary);
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      padding: 8px 0;
       text-align: center;
+    }
+    
+    .top-bar a {
+      color: var(--accent);
+      font-weight: 700;
+      border-bottom: 1px dashed var(--accent);
+    }
+
+    /* Header / Hero */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: #fff;
+      padding: 80px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Abstract shapes background */
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      right: -50px;
+      width: 400px;
+      height: 400px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 10;
     }
 
     header h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 18px;
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
     }
 
     header p {
-      max-width: 780px;
-      margin: 0 auto 36px;
-      font-size: 1.15rem;
-      opacity: 0.95;
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 48px;
+      font-weight: 300;
     }
 
-    .cta-buttons {
+    .cta-group {
       display: flex;
       justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
     }
 
-    .btn {
-      padding: 13px 30px;
-      border-radius: 12px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: 0.3s;
-    }
-
-    .btn-primary {
-      background: #fff;
-      color: var(--primary);
-    }
-
-    .btn-primary:hover { background: #ffedd5; }
-
-    .btn-outline {
-      border: 2px solid #fff;
-      color: #fff;
-    }
-
-    .btn-outline:hover { background: rgba(255,255,255,0.2); }
-
+    /* Section Styles */
     section {
-      padding: 90px 20px;
-      max-width: 1200px;
-      margin: auto;
+      padding: 100px 0;
     }
 
-    .section-title {
+    .section-header {
       text-align: center;
-      margin-bottom: 56px;
+      margin-bottom: 60px;
     }
 
-    .section-title h2 {
-      font-size: 2.2rem;
+    .section-header h2 {
+      font-size: 2.25rem;
+      color: var(--secondary);
       font-weight: 800;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
 
-    .section-title p {
-      color: var(--muted);
-      max-width: 680px;
-      margin: auto;
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
+    /* Features Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 26px;
+      gap: 30px;
     }
 
-    .card {
-      background: var(--card);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
-      transition: 0.3s;
+    .feature-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 22px 45px rgba(0,0,0,0.12);
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: #bfdbfe;
     }
 
-    .card i {
-      font-size: 1.9rem;
+    .icon-box {
+      width: 60px;
+      height: 60px;
+      background: #eff6ff;
       color: var(--primary);
-      margin-bottom: 18px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 24px;
     }
 
-    .card h3 {
+    .feature-card h3 {
       font-size: 1.25rem;
-      font-weight: 800;
-      margin-bottom: 10px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--secondary);
     }
 
-    .card p {
-      color: var(--muted);
+    .feature-card p {
+      color: var(--text-muted);
       font-size: 0.95rem;
     }
 
-    .tools {
-      background: #fff;
-      border-radius: 28px;
-      padding: 50px 30px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    /* Savely Showcase Section */
+    .savely-section {
+      background: linear-gradient(to bottom, #fff7ed, #fff); /* Soft Orange/Amber Gradient */
+      border-top: 1px solid #ffedd5;
+      border-bottom: 1px solid #ffedd5;
+      overflow: hidden;
     }
 
-    .tools ul {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-      list-style: none;
+    .showcase-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
     }
 
-    .tools li {
-      padding: 14px 18px;
-      border-radius: 12px;
-      background: #fff7ed;
-      border-right: 4px solid var(--primary);
-      font-weight: 600;
+    .showcase-content {
+      flex: 1;
+      min-width: 300px;
     }
 
-    footer {
-      background: #1f2933;
-      color: #e5e7eb;
+    .showcase-visual {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .savely-badge {
+      background: #ffedd5;
+      color: #c2410c;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      display: inline-block;
+      box-shadow: 0 2px 4px rgba(249, 115, 22, 0.1);
+    }
+
+    .showcase-content h2 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #1e293b;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    
+    .showcase-content .subtitle {
+        font-size: 1.2rem;
+        color: #f97316;
+        font-weight: 600;
+        margin-bottom: 24px;
+        display: block;
+    }
+
+    .showcase-content p {
+        font-size: 1.05rem;
+        color: #475569;
+        margin-bottom: 30px;
+        line-height: 1.8;
+    }
+
+    .savely-features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    .savely-feature-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.95rem;
+        color: #334155;
+        background: rgba(255,255,255,0.6);
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 1px solid #fed7aa;
+    }
+
+    .savely-feature-item i {
+        color: #f97316;
+    }
+
+    .mockup-card {
+      background: white;
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 25px 50px -12px rgba(249, 115, 22, 0.2);
+      border: 4px solid #fff;
+      outline: 1px solid #ffedd5;
       text-align: center;
-      padding: 50px 20px;
+      position: relative;
+      max-width: 480px;
+      width: 100%;
+      z-index: 2;
+    }
+    
+    /* Decorative elements behind mockup */
+    .blob {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: #ffedd5;
+        border-radius: 50%;
+        filter: blur(40px);
+        z-index: 1;
+        opacity: 0.6;
+    }
+    
+    .mockup-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 30px;
+        justify-content: center;
+        border-bottom: 1px solid #f1f5f9;
+        padding-bottom: 20px;
+    }
+    
+    .mockup-logo-bg {
+        width: 50px;
+        height: 50px;
+        background: #fff7ed;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    footer a { color: #fdba74; }
+    /* Stats Section */
+    .stats-container {
+      background: var(--secondary);
+      border-radius: 24px;
+      padding: 60px;
+      color: white;
+      text-align: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .stat-item h3 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .stat-item p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #020617;
+      color: #cbd5e1;
+      padding: 80px 0 30px;
+      border-top: 1px solid #1e293b;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      padding-right: 5px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,0.03);
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .contact-item i {
+      color: var(--primary);
+    }
+    
+    .contact-item strong {
+      display: block;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    
+    .contact-item span, .contact-item a {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #1e293b;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
 
     @media (max-width: 768px) {
       header h1 { font-size: 2.2rem; }
+      .showcase-wrapper { flex-direction: column-reverse; text-align: center; }
+      .showcase-visual { width: 100%; }
+      .savely-features { grid-template-columns: 1fr; }
+      .mockup-card { padding: 20px; }
+      .showcase-content h2 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>🛠️ DigitalYar Tools Hub</h1>
-  <p>
-    مرجع ابزارهای تخصصی نرم‌افزاری برای کسب‌وکارهای ایرانی  
-    <br />
-    سریع، کاربردی و متناسب با نیاز واقعی بازار
-  </p>
-
-  <div class="cta-buttons">
-    <a href="README.md" class="btn btn-primary">
-      <i class="fa-brands fa-github"></i>
-      مشاهده مخزن (README)
-    </a>
-    <a href="https://digifilestore.ir" class="btn btn-outline">
-      <i class="fa-solid fa-globe"></i>
-      وب‌سایت دیجیتال‌یار
-    </a>
-  </div>
-</header>
-
-<section>
-  <div class="section-title">
-    <h2>چرا دیجیتال‌یار؟</h2>
-    <p>ابزارهایی دقیق، ساده و قابل‌استفاده که مستقیماً یک مشکل واقعی را حل می‌کنند.</p>
-  </div>
-
-  <div class="grid">
-    <div class="card"><i class="fa-solid fa-bolt"></i><h3>سریع و عملیاتی</h3><p>بدون پیچیدگی؛ مناسب استفاده روزمره.</p></div>
-    <div class="card"><i class="fa-solid fa-industry"></i><h3>بازار ایران</h3><p>بر اساس قوانین و نیازهای واقعی.</p></div>
-    <div class="card"><i class="fa-solid fa-chart-line"></i><h3>داده‌محور</h3><p>کمک به تصمیم‌گیری دقیق.</p></div>
-    <div class="card"><i class="fa-solid fa-code"></i><h3>Open Source</h3><p>برخی پروژه‌ها متن‌باز هستند.</p></div>
-  </div>
-</section>
-
-<section>
-  <div class="section-title">
-    <h2>نمونه ابزارها</h2>
-    <p>بخشی از ابزارهای موجود در DigitalYar Tools</p>
-  </div>
-
-  <div class="tools">
-    <ul>
-      <li>Site Engineer Pro – متره و برآورد مهندسی</li>
-      <li>OEE Master – محاسبه بهره‌وری تجهیزات</li>
-      <li>Invoice Pro – فاکتورساز و حسابداری ساده</li>
-      <li>LoanMaster Pro – مدیریت وام و اقساط</li>
-      <li>KitchenERP – آنالیز قیمت غذا</li>
-      <li>Workshift Manager – مدیریت شیفت کاری</li>
-    </ul>
-  </div>
-</section>
-
-<section>
-  <div class="section-title">
-    <h2>پروژه Open Source</h2>
-    <p>نمونه‌ای از پروژه‌های متن‌باز دیجیتال‌یار</p>
-  </div>
-
-  <div class="grid">
-    <div class="card">
-      <i class="fa-solid fa-unlock"></i>
-      <h3>Savely</h3>
-      <p>مدیریت مالی شخصی – پروژه Open Source</p>
-      <p style="margin-top:12px;font-weight:700;">
-        <a href="https://worldmohammad.github.io/savely-os/" target="_blank">مشاهده صفحه Savely ↗</a>
-      </p>
+  <!-- Top Notification -->
+  <div class="top-bar">
+    <div class="container">
+      🎉 پروژه جدید و رایگان ما منتشر شد: <a href="https://worldmohammad.github.io/savely-os/">مشاهده Savely در گیت‌هاب</a>
     </div>
   </div>
-</section>
 
-<footer>
-  <p>© DigitalYar – ساخته‌شده با ❤️ برای کسب‌وکارهای ایرانی</p>
-  <p>
-    <a href="mailto:info@digifilestore.ir">info@digifilestore.ir</a> | 
-    <a href="https://t.me/dfs_ir_support">Telegram</a>
-  </p>
-</footer>
+  <!-- Hero Section -->
+  <header>
+    <div class="container hero-content">
+      <!-- Badge Removed -->
+      <h1>🛠️ DigitalYar Tools Hub</h1>
+      <p>
+        جعبه ابزار دیجیتال‌یار؛ مرجع ابزارهای تخصصی نرم‌افزاری برای کسب‌وکارهای ایرانی.
+        <br>
+        سریع، کاربردی و دقیقا همان چیزی که برای مدیریت نیاز دارید.
+      </p>
+
+      <div class="cta-group">
+        <a href="https://digifilestore.ir" class="btn btn-white">
+          <i class="fa-solid fa-globe"></i>
+          ورود به وب‌سایت
+        </a>
+        <a href="https://github.com/worldmohammad/DigitalYar-Tools" target="_blank" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4)">
+          <i class="fa-brands fa-github"></i>
+          مخزن GitHub
+        </a>
+        <a href="tel:09351179562" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4)">
+          <i class="fa-solid fa-phone"></i>
+          تماس: 09351179562
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features Section -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h2>چرا دیجیتال‌یار را انتخاب کنید؟</h2>
+        <p>ما به جای نرم‌افزارهای پیچیده و گران‌قیمت، راهکارهای چابک و متمرکز بر حل مسئله ارائه می‌دهیم.</p>
+      </div>
+
+      <div class="grid">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+          <h3>سریع و عملیاتی</h3>
+          <p>بدون نیاز به نصب پیچیده و آموزش طولانی. ابزارها را دانلود کنید و از همان لحظه استفاده کنید.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-industry"></i></div>
+          <h3>بومی‌سازی شده</h3>
+          <p>طراحی شده بر اساس قوانین مالیاتی، عرف بازار و نیازهای واقعی اصناف و صنایع ایران.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div>
+          <h3>داده‌محور</h3>
+          <p>از حدس و گمان بپرهیزید. ابزارهای ما به شما کمک می‌کنند تصمیمات مدیریتی دقیق‌تری بگیرید.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fa-solid fa-code"></i></div>
+          <h3>توسعه‌پذیر</h3>
+          <p>معماری ماژولار و ارائه برخی پروژه‌ها به صورت Open Source برای توسعه‌دهندگان.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Savely Showcase (Featured Project) -->
+  <section class="savely-section">
+    <div class="container">
+      <div class="showcase-wrapper">
+        
+        <!-- Text Content -->
+        <div class="showcase-content">
+          <span class="savely-badge">تقدیم به همه ایرانیان (رایگان و متن‌باز)</span>
+          <h2>Savely: سیستم‌عامل شخصی شما</h2>
+          <span class="subtitle">زندگی دیجیتال خود را بازپس بگیرید</span>
+          
+          <p>
+             سیولی (Savely) یک داشبورد امن، آفلاین و همه‌کاره است که برای مدیریت کامل زندگی شما طراحی شده است. از مدیریت مالی پیشرفته و حسابداری گرفته تا یادداشت‌برداری حرفه‌ای و ردیابی سلامت، همه چیز در یک نرم‌افزار واحد.
+             <br>
+             بدون اشتراک ماهانه، بدون ردیابی اطلاعات و کاملاً خصوصی.
+          </p>
+          
+          <div class="savely-features">
+            <div class="savely-feature-item">
+                <i class="fa-solid fa-wallet"></i> مرکز فرماندهی مالی
+            </div>
+            <div class="savely-feature-item">
+                <i class="fa-solid fa-brain"></i> مغز دوم و یادداشت‌ها
+            </div>
+            <div class="savely-feature-item">
+                <i class="fa-solid fa-list-check"></i> مدیریت تسک و تمرکز
+            </div>
+            <div class="savely-feature-item">
+                <i class="fa-solid fa-shield-halved"></i> امنیت کامل و آفلاین
+            </div>
+            <div class="savely-feature-item">
+                <i class="fa-solid fa-heart-pulse"></i> ردیاب سلامت و دارو
+            </div>
+            <div class="savely-feature-item">
+                <i class="fa-brands fa-windows"></i> مخصوص ویندوز ۱۰ و ۱۱
+            </div>
+          </div>
+
+          <a href="https://worldmohammad.github.io/savely-os/" class="btn btn-savely">
+            <i class="fa-brands fa-github-alt"></i>
+            دانلود رایگان Savely
+          </a>
+        </div>
+
+        <!-- Visual Content -->
+        <div class="showcase-visual">
+          <div class="blob"></div>
+          <div class="mockup-card">
+            
+            <div class="mockup-header">
+                <div class="mockup-logo-bg">
+                    <i class="fa-solid fa-shield-halved" style="font-size: 1.5rem; color: #f97316;"></i>
+                </div>
+                <div style="text-align: right; flex: 1;">
+                    <div style="font-weight: 800; font-size: 1.2rem; color: #1e293b;">Savely Dashboard</div>
+                    <div style="font-size: 0.8rem; color: #64748b;">نسخه پایدار v1.0.0</div>
+                </div>
+            </div>
+
+            <!-- Fake UI Elements representing Modules -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+                <div style="background: #fff7ed; padding: 15px; border-radius: 12px; text-align: right;">
+                    <i class="fa-solid fa-chart-pie" style="color: #f97316; margin-bottom: 8px;"></i>
+                    <div style="font-weight: 700; font-size: 0.9rem; color: #431407;">وضعیت مالی</div>
+                    <div style="height: 6px; background: #fed7aa; border-radius: 4px; margin-top: 8px; width: 70%;"></div>
+                </div>
+                <div style="background: #f0fdf4; padding: 15px; border-radius: 12px; text-align: right;">
+                    <i class="fa-solid fa-check-circle" style="color: #16a34a; margin-bottom: 8px;"></i>
+                    <div style="font-weight: 700; font-size: 0.9rem; color: #064e3b;">تسک‌های امروز</div>
+                    <div style="height: 6px; background: #bbf7d0; border-radius: 4px; margin-top: 8px; width: 50%;"></div>
+                </div>
+            </div>
+
+            <div style="background: #f1f5f9; padding: 15px; border-radius: 12px; text-align: center;">
+                <p style="margin: 0; font-size: 0.85rem; color: #475569;">
+                    <i class="fa-solid fa-lock" style="color: #64748b;"></i>
+                    اطلاعات شما فقط روی سیستم خودتان ذخیره می‌شود
+                </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section>
+    <div class="container">
+      <div class="stats-container">
+        <div class="stat-item">
+          <h3>+40</h3>
+          <p>ابزار تخصصی فعال</p>
+        </div>
+        <div class="stat-item">
+          <h3>+10</h3>
+          <p>حوزه کسب‌وکار پوشش داده شده</p>
+        </div>
+        <div class="stat-item">
+          <h3>+1000</h3>
+          <p>کاربر راضی در سراسر ایران</p>
+        </div>
+        <div class="stat-item">
+          <h3>24/7</h3>
+          <p>پشتیبانی فنی و آپدیت</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col">
+          <h4>درباره دیجیتال‌یار</h4>
+          <p style="line-height: 1.8; color: #94a3b8;">
+            ما تیمی از توسعه‌دهندگان شمال کشور هستیم که هدفمان ارتقای سطح مدیریتی کسب‌وکارهای ایرانی با ابزارهای ساده اما قدرتمند است.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>دسترسی سریع</h4>
+          <ul class="footer-links">
+            <li><a href="https://digifilestore.ir"><i class="fa-solid fa-angle-left"></i> فروشگاه فایل دیجیتال</a></li>
+            <li><a href="https://worldmohammad.github.io/savely-os/"><i class="fa-solid fa-angle-left"></i> پروژه Savely</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-left"></i> درباره ما</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-left"></i> سوالات متداول</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>اطلاعات تماس</h4>
+          
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <strong>شماره تماس:</strong>
+              <a href="tel:09351179562" style="font-size: 1.1rem; color: #fff; letter-spacing: 1px;">0935 117 9562</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <strong>ایمیل پشتیبانی:</strong>
+              <a href="mailto:info@digifilestore.ir">info@digifilestore.ir</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-brands fa-telegram"></i>
+            <div>
+              <strong>تلگرام:</strong>
+              <a href="https://t.me/dfs_ir_support">@dfs_ir_support</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        <p>© DigitalYar 2024 – توسعه داده شده با ❤️ برای ایران</p>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
