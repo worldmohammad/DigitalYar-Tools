@@ -101,7 +101,7 @@
 📩 با ما در تماس باشید 
 - 📞 **Phone:** `09351179562`
 - 📧 **Email:** [info@digifilestore.ir](mailto:info@digifilestore.ir)
-- 💬 **Telegram:** https://t.me/worldmohammad
+- 💬 **Telegram:** https://t.me/dfs_ir_support
 
 🔓 برخی پروژه‌ها به‌صورت Open Source منتشر می‌شوند  
 🟢 **Savely – Open Source Project**  
